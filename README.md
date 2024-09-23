@@ -19,7 +19,9 @@ Considerando um arquivo de interesse "sales.csv" e o import das bibliotecas Nump
 
 Explicando: Utilizaria a biblioteca Pandas para primeiramente, importar o csv a partir da função 
 
-``` bd = pandas.readcsv("sales.csv")```.
+```python
+ bd = pandas.readcsv("sales.csv") 
+```
 
 A partir dessa disposição, para facilitar o tratamento e limpeza, converteria para um Dataframe, tipo de dados do próprio Pandas. Considerando que o csv lido foi armazenado na variável bd.
 
@@ -39,9 +41,26 @@ Uma coluna chamada nome pode ser substituida por 'desconhecido' ou 'não informa
 
 ```python
 
-df_vendas[['nome']] = df_vendas[['nome']].fillna(value="desconhecido")
+df_vendas[['nome']] =df_vendas[['nome']].fillna(value="desconhecido")
 
 ```
+
+Já se tratando de números, é um pouco mais complicado, pois pode afetar diretamente a análise do que está sendo pedido, contudo, se tratando de uma base que tem informações de um produto, é possivel fazer uma associação direta do nome do produto com seu preço determinado, por exemplo:
+
+```python
+
+# supondo que o elemento do df_vendas tem os campos nome,preco,data
+
+produto = {"camisa_bazica_preta":140.00}
+
+for produto in df_vendas:
+    if produto['preco'] == None:
+        produto['preco'] = produto[produto['nome']]
+
+```
+Nesse caso, se o preço do produto não estiver informado, ele será substituido pelo preço associado ao nome do produto.
+
+Outro caso é substituir por um valor padrão, que geralmente é a media dos valores da coluna, o que não é o ideal para uma análise meticulosa.
 
 Com tudo certo, é possível realizar análises baseadas no tipo do produto, preço, nome do cliente, etc. 
 
@@ -69,7 +88,9 @@ Esse segundo gráfico, ainda que mais simples, foi utilizado para analisar a efi
 ### Questão 4 (Problema de Negócio com Dados)
 
 
-Para esse tipo de problema, é importante saber desde quando a base de dados está sendo construida, é interessante analisar a tendencia com o passar de anos, por exemplo, para ter uma tendência em cada mês ou período, apesar disso, é possível fazer uma análise mês a mês considerando as datas mais movimentadas de compras na loja. Seja quando um anuncio novo é soltado nas redes sociais ou um grande evento, como a Black Friday ou um saldão. Considerando isso, é possivel realizar uma regressão Linear considerando a data e as vendas associadas àquela data todos os meses, ou a estimativa de numeros de venda de um produto no mês.
+Para esse tipo de problema, é importante saber desde quando a base de dados está sendo construida, é interessante analisar a tendencia com o passar de anos, por exemplo, para ter uma tendência em cada mês ou período, apesar disso, é possível fazer uma análise mês a mês considerando as datas e dias de semana mais movimentados da loja. Seja quando um anuncio novo é soltado nas redes sociais ou um grande evento, como a Black Friday ou um saldão. Considerando isso, é possivel realizar uma regressão Linear considerando a data e as vendas associadas àquela data todos os meses, ou a estimativa de numeros de venda de um produto ou da loja inteira no mês.
+
+O resultado do algoritmo é uma estimativa de valores futuros considerando qualquer possivel desvio ou erro associado, que tendem a diminuir com a robustez do modelo.
 
 
 Uma maneira mais simples, pode ser considerar a média das vendas por mês já cadastradas e considerar a média por mês, considerando o desvio padrão como um possível erro previsto. 
@@ -77,12 +98,12 @@ Uma maneira mais simples, pode ser considerar a média das vendas por mês já c
 
 ### Questão 5 (Transformação de Dados)
 
-
+Os projetos que necessitei uma ETL foram mais voltados para a Graduação, principalmente nos de Machine Learning, onde era necessário juntar informações de 8 bases de dados sobre elementos arquitetônicos e realizar treinamento utilizando árvores de decisão. No processo, eu precisava juntar as informações de cada base de dados, adicionar os labels e fazer a divisão de treino e teste.
 
 
 ### Questão 6 (Campanha em Salvador)
 
-
+Acompanhando a série do "Da fina ou da grossa", e os stories postados em 23/09/2024, onde foi dito que +500 camisas foram vendidas na capital Bahiana, considerando isso em um periodo de tempo de uma semana, eu arriscaria dizer que por volta de 800 camisas já foram vendidas nesse período de tempo em Salvador, levando em conta de 2 a 3 semanas de campanha e com um possível crescimento acelerado na última semana. por conta dos anúncios e da campanha de marketing.
 
 
 
