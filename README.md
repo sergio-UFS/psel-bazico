@@ -91,11 +91,11 @@ Já utilizei: Matplotlib (90%) Seaborn (10%)
 
 A análise abaixo foi feita no último mês em um projeto junto à LADATA e Mangue Jornalisto para analisar o eleitorado de Aracaju. Os gráficos foram gerados separadamente e juntos apenas para propósito de visualização nesse processo Seletivo
 
-![Análise Eleitorado Aracaju](resumo_analise_mangue.png)
+![Análise Eleitorado Aracaju](./assets/resumo_analise_mangue.png)
 
 Esse segundo gráfico, ainda que mais simples, foi utilizado para analisar a eficiência de dois algoritmos, que foram utilizados para a classificação de modelos no meu projeto de Pesquisa.
 
-![BoxPlot](image-1.png)
+![BoxPlot](./assets/image-1.png)
 
 
 ## 🧑‍💼 **Questão 4 (Problema de Negócio com Dados)**
