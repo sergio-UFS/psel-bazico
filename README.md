@@ -2,7 +2,7 @@
 
 ## O desafio consiste em responder 06 perguntas que cobrem uma ampla gama de competências, desde conhecimentos práticos de programação e análise até a capacidade de abordar problemas de negócios com um pensamento analítico.
 
-
+Autor: Sérgio Manhães Moura Filho
 > Os códigos abaixo foram feitos fora de contexto, apenas para exemplificar, a nomeação das variáveis e tabelas foi feita por convenção minha. 
 
 ## 🏢 **Questão 1 (SQL)**
