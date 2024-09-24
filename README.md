@@ -3,17 +3,30 @@
 ## O desafio consiste em responder 06 perguntas que cobrem uma ampla gama de competências, desde conhecimentos práticos de programação e análise até a capacidade de abordar problemas de negócios com um pensamento analítico.
 
 
-### Questão 1 (SQL)
+> Os códigos abaixo foram feitos fora de contexto, apenas para exemplificar, a nomeação das variáveis e tabelas foi feita por convenção minha. 
 
-Considerando a tabela clientes do schema bazico e considerando que há um elemento Primary Key "cpf", a identificação de duplicatas pode ser feito:
+## 🏢 Questão 1 (SQL)
 
-```
-SELECT * FROM bazico.clientes 
+Considerando a tabela clientes do schema bazico e considerando que há um elemento Primary Key "identificador", que é um inteiro AUTO_INCREMENT e cpf sendo um campo que não pode haver duplicatas, a identificação de duplicatas pode ser feito:
+
+```SQL
+SELECT cpf, COUNT(*) FROM bazico.clientes
 GROUP BY cpf
-WHERE COUNT > 1
+WHERE COUNT(*) > 1;
+
 ```
 
-### Questão 2 (Python)
+Para a exclusão, é necessário que pelo menos a primeira ocorrencia seja mantida, pode ser feito um subselect para encontrar o menor identificador e excluir os outros. Particularmente, não trabalhei com esse tipo de ocorrencia, mas pode ser algo do tipo:
+
+```SQL
+DELETE FROM bazico.clientes
+WHERE identificador NOT IN (SELECT MIN(identificador) FROM bazico.clientes GROUP BY cpf);
+```
+
+Com isso, é possível excluir todas as duplicatas, mantendo a primeira ocorrencia.
+
+
+## 🐍 Questão 2 (Python)
 
 Considerando um arquivo de interesse "sales.csv" e o import das bibliotecas Numpy e Pandas.
 
@@ -71,7 +84,7 @@ Além disso, com a data de compras também é possível ter uma estimativa dos d
 Além disso, com o armazenamento a longo prazo, é possível criar um robusto gráfico com a comparação mês a mês do valor das vendas e criar uma automação para criar um csv para salvar um resumo por mês, bimestre ou até anual.
 
 
-### Questão 3 (Ferramentas de Análise)
+## 📊Questão 3 (Ferramentas de Análise)
 
 Já utilizei: Matplotlib (90%) Seaborn (10%)
 
@@ -85,7 +98,7 @@ Esse segundo gráfico, ainda que mais simples, foi utilizado para analisar a efi
 ![BoxPlot](image-1.png)
 
 
-### Questão 4 (Problema de Negócio com Dados)
+## 🧑‍💼 Questão 4 (Problema de Negócio com Dados)
 
 
 Para esse tipo de problema, é importante saber desde quando a base de dados está sendo construida, é interessante analisar a tendencia com o passar de anos, por exemplo, para ter uma tendência em cada mês ou período, apesar disso, é possível fazer uma análise mês a mês considerando as datas e dias de semana mais movimentados da loja. Seja quando um anuncio novo é soltado nas redes sociais ou um grande evento, como a Black Friday ou um saldão. Considerando isso, é possivel realizar uma regressão Linear considerando a data e as vendas associadas àquela data todos os meses, ou a estimativa de numeros de venda de um produto ou da loja inteira no mês.
@@ -96,12 +109,12 @@ O resultado do algoritmo é uma estimativa de valores futuros considerando qualq
 Uma maneira mais simples, pode ser considerar a média das vendas por mês já cadastradas e considerar a média por mês, considerando o desvio padrão como um possível erro previsto. 
 
 
-### Questão 5 (Transformação de Dados)
+## ⌨️ Questão 5 (Transformação de Dados)
 
-Os projetos que necessitei uma ETL foram mais voltados para a Graduação, principalmente nos de Machine Learning, onde era necessário juntar informações de 8 bases de dados sobre elementos arquitetônicos e realizar treinamento utilizando árvores de decisão. No processo, eu precisava juntar as informações de cada base de dados, adicionar os labels e fazer a divisão de treino e teste.
+Os projetos que necessitei uma ETL foram mais voltados para a Graduação, principalmente nos de Machine Learning, onde era necessário juntar informações de 8 bases de dados sobre elementos arquitetônicos e realizar treinamento utilizando árvores de decisão. No processo, eu precisava juntar as informações de cada base de dados, adicionar os labels e fazer a divisão de treino e teste. No processo foi necessário ajustar alguns campos presentes em uns e não em outros e arranjar uma maneira de preencher esse dados faltantes.
 
 
-### Questão 6 (Campanha em Salvador)
+## 👕 Questão 6 (Campanha em Salvador)
 
 Acompanhando a série do "Da fina ou da grossa", e os stories postados em 23/09/2024, onde foi dito que +500 camisas foram vendidas na capital Bahiana, considerando isso em um periodo de tempo de uma semana, eu arriscaria dizer que por volta de 800 camisas já foram vendidas nesse período de tempo em Salvador, levando em conta de 2 a 3 semanas de campanha e com um possível crescimento acelerado na última semana. por conta dos anúncios e da campanha de marketing.
 
