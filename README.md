@@ -33,7 +33,7 @@ Considerando um arquivo de interesse "sales.csv" e o import das bibliotecas Nump
 Explicando: Utilizaria a biblioteca Pandas para primeiramente, importar o csv a partir da função 
 
 ```python
- bd = pandas.readcsv("sales.csv") 
+ bd = pandas.read_csv("sales.csv") 
 ```
 
 A partir dessa disposição, para facilitar o tratamento e limpeza, converteria para um Dataframe, tipo de dados do próprio Pandas. Considerando que o csv lido foi armazenado na variável bd.
@@ -89,19 +89,23 @@ Além disso, com o armazenamento a longo prazo, é possível criar um robusto gr
 Já utilizei: Matplotlib (90%) Seaborn (10%)
 
 
-A análise abaixo foi feita no último mês em um projeto junto à LADATA e Mangue Jornalisto para analisar o eleitorado de Aracaju. Os gráficos foram gerados separadamente e juntos apenas para propósito de visualização nesse processo Seletivo
+>A análise abaixo foi feita no último mês em um projeto junto à LADATA e Mangue Jornalisto para analisar o eleitorado de Aracaju. Os gráficos foram gerados separadamente e juntos apenas para propósito de visualização nesse processo Seletivo
 
 ![Análise Eleitorado Aracaju](./assets/resumo_analise_mangue.png)
 
-Esse segundo gráfico, ainda que mais simples, foi utilizado para analisar a eficiência de dois algoritmos, que foram utilizados para a classificação de modelos no meu projeto de Pesquisa.
+>Esse segundo gráfico, ainda que mais simples, foi utilizado para analisar a eficiência de dois algoritmos, que foram utilizados para a classificação de modelos no meu projeto de Pesquisa.
 
 ![BoxPlot](./assets/image-1.png)
 
+>Esse último gráfico está sendo utilizado em meu TCC para analisar a tendencia de potência elétrica de aparelhos de uma residência, para posteriormente gerar um modelo de previsão de consumo de energia e classificação de aparelhos.
+
+![alt text](./assets/img_TCC.png)
 
 ## 🧑‍💼 **Questão 4 (Problema de Negócio com Dados)**
 
 
-Para esse tipo de problema, é importante saber desde quando a base de dados está sendo construida, é interessante analisar a tendencia com o passar de anos, por exemplo, para ter uma tendência em cada mês ou período, apesar disso, é possível fazer uma análise mês a mês considerando as datas e dias de semana mais movimentados da loja. Seja quando um anuncio novo é soltado nas redes sociais ou um grande evento, como a Black Friday ou um saldão. Considerando isso, é possivel realizar uma regressão Linear considerando a data e as vendas associadas àquela data todos os meses, ou a estimativa de numeros de venda de um produto ou da loja inteira no mês.
+Para esse tipo de problema, é importante saber desde quando a base de dados está sendo construida, é interessante analisar a tendencia com o passar de anos, por exemplo, para ter uma tendência em cada mês ou período. 
+Apesar disso, é possível fazer uma análise mês a mês considerando as datas e dias de semana mais movimentados da loja. Seja quando um anuncio novo é soltado nas redes sociais ou um grande evento, como a Black Friday ou um saldão. Considerando isso, é possivel realizar uma regressão Linear considerando a data e as vendas associadas àquela data todos os meses, ou a estimativa de numeros de venda de um produto ou da loja inteira no mês.
 
 O resultado do algoritmo é uma estimativa de valores futuros considerando qualquer possivel desvio ou erro associado, que tendem a diminuir com a robustez do modelo.
 
@@ -113,10 +117,16 @@ Uma maneira mais simples, pode ser considerar a média das vendas por mês já c
 
 Os projetos que necessitei uma ETL foram mais voltados para a Graduação, principalmente nos de Machine Learning, onde era necessário juntar informações de 8 bases de dados sobre elementos arquitetônicos e realizar treinamento utilizando árvores de decisão. No processo, eu precisava juntar as informações de cada base de dados, adicionar os labels e fazer a divisão de treino e teste. No processo foi necessário ajustar alguns campos presentes em uns e não em outros e arranjar uma maneira de preencher esse dados faltantes.
 
+Outro exemplo, dessa vez em um projeto pessoal, foi o uso de WebScrapping para coletar dados da Stardew Valley Wiki, onde foi necessário juntar diversas informações de diferentes páginas e transformar em um único arquivo csv para ser utilizado em um projeto de análise de dados, que ainda não foi finalizado, mas já há versões no Kaggle.
+
+https://www.kaggle.com/datasets/srgiomanhes/stardew-valley-villagers-dataset
+
 
 ## 👕 **Questão 6 (Campanha em Salvador)**
 
 Acompanhando a série do "Da fina ou da grossa", e os stories postados em 23/09/2024, onde foi dito que +500 camisas foram vendidas na capital Bahiana, considerando isso em um periodo de tempo de uma semana, eu arriscaria dizer que por volta de 800 camisas já foram vendidas nesse período de tempo em Salvador, levando em conta de 2 a 3 semanas de campanha e com um possível crescimento acelerado na última semana. por conta dos anúncios e da campanha de marketing.
+
+Sendo um pouco mais específico, arricaria a proporção, por semana de: 100,200 e 500 camisas.
 
 
 
